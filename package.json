@@ -1,0 +1,19 @@
+{
+  "name": "express_logger",
+  "version": "0.0.1",
+  "description": "A simple logger middleware function for express",
+  "main": "index.js",
+  "preferGlobal": true,
+  "author": {
+    "name": "Kaushik Kumaran"
+  },
+  "license": "MIT",
+  "keywords": [
+    "express logger",
+    "logger",
+    "server logger"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.0"
+  }
+}

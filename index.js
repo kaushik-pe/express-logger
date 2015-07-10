@@ -1,5 +1,5 @@
+var chalk = require('chalk');
 var hasOwnProperty = Object.prototype.hasOwnProperty;
-
 function isEmpty(obj) {
 
     // null and undefined are "empty"
@@ -29,16 +29,27 @@ function express_logger(config)
             {
                 /*obtaining necessary details from request object*/
                 var output = "Method = "+req.method+" Url= "+req.url+
-                            " IP Address= "+req.ip;
+                             " IP Address= "+req.ip;
                 console.log(output);
                 if(!isEmpty(req.query))
                 {
-                    process.stdout.write("Query String = ");  
+                   console.log("Query String Values:");  
                     for(i in req.query)
                     {
-                        process.stdout.write(i+" = "+req.query+"\n");
+                        process.stdout.write(i);
+                        console.log(" = "+req.query[i]);
                     }
                 }
+               if(!isEmpty(req.cookies))
+               {
+                 console.log("Cookie Values =");
+                 for(i in req.cookies)
+                    {
+                        process.stdout.write(i);
+                        console.log(" = "+req.cookies[i]);
+                    }
+                   
+               }
                 //console.log(res);
             }
     }
