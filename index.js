@@ -28,16 +28,17 @@ function express_logger(config)
         return function(req,res)
             {
                 /*obtaining necessary details from request object*/
-                var output = "Method = "+req.method+" Url= "+req.url+
-                             " IP Address= "+req.ip;
+                var output = "Method = "+chalk.green(req.method)+ " Url= "+chalk.green(req.url)+
+                             " IP Address= "+chalk.green(req.ip);
                 console.log(output);
                 if(!isEmpty(req.query))
                 {
                    console.log("Query String Values:");  
                     for(i in req.query)
                     {
-                        process.stdout.write(i);
-                        console.log(" = "+req.query[i]);
+                        process.stdout.write(i+" = ");
+                        console.log(chalk.green(req.query[i]));
+                      
                     }
                 }
                if(!isEmpty(req.cookies))
@@ -57,7 +58,7 @@ function express_logger(config)
     {
         return function(req,res)
         {
-            var output = "Method = "+req.method+" Url= "+req.url; 
+            var output = chalk.green("Method = ")+req.method+ chalk.green(" Url= ")+req.url; 
             console.log(output);
         }
         
@@ -66,7 +67,7 @@ function express_logger(config)
     {
         return function(req,res)/*if config is not set properly*/
         {
-            console.log("Invalid logger option")   
+            console.log(chalk.red("Invalid logger option"))   
         }
     }
     
