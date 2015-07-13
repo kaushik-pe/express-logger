@@ -1,6 +1,6 @@
 {
   "name": "express_logger",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple logger middleware function for express",
   "main": "index.js",
   "preferGlobal": true,
@@ -13,6 +13,10 @@
     "logger",
     "server logger"
   ],
+ "repository": {
+    "type": "git",
+    "url": "git://github.com/kaushik-pe/express-logger"
+  },
   "dependencies": {
     "chalk": "^1.1.0"
   }
