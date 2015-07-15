@@ -25,7 +25,7 @@ function express_logger(config)
 {
     if(config=="detailed")/*logger detailed config*/
     {
-        return function(req,res)
+        return function(req,res,next)
             {
                 /*obtaining necessary details from request object*/
                 var output = "Method = "+chalk.green(req.method)+ " Url= "+chalk.green(req.url)+
@@ -51,23 +51,25 @@ function express_logger(config)
                     }
                    
                }
-                //console.log(res);
+                next();
             }
     }
     else if(config=="simple")/*logger simple config*/
     {
-        return function(req,res)
+        return function(req,res,next)
         {
             var output = chalk.green("Method = ")+req.method+ chalk.green(" Url= ")+req.url; 
             console.log(output);
+            next();
         }
         
     }
     else 
     {
-        return function(req,res)/*if config is not set properly*/
+        return function(req,res,next)/*if config is not set properly*/
         {
-            console.log(chalk.red("Invalid logger option"))   
+            console.log(chalk.red("Invalid logger option"));
+            next();
         }
     }
     

@@ -13,7 +13,7 @@ npm install express_logger
 ```
 ## How to use
   ```
-  var logger = require(str);
+  var logger = require('express_logger');
   var express = require('express');
   app = express();
   app.use(logger('detailed'));
